@@ -37,8 +37,8 @@ def update
 	
 		if tweet_data.present?	
 			if tweet_data.first.update(tweets_params)
-				response.header['msg'] = "Record Updated Successfully."
-				render json: {success:true,status_msg:"Record Updated Successfully",data:ActiveModel::SerializableResource.new(Tweet.find(tweet_data.first.id)).as_json}, status: 200
+				response.header['msg'] = "Tweet Updated Successfully."
+				render json: {success:true,status_msg:"Tweet Updated Successfully",data:ActiveModel::SerializableResource.new(Tweet.find(tweet_data.first.id)).as_json}, status: 200
 			else	
 			response.header['msg'] = tweet_data.first.errors.full_messages.first+'.'
 			render json:{success:false, status_msg:tweet_data.first.errors.full_messages.first+'.'} , status: 422 
@@ -70,8 +70,8 @@ def destroy
 
 			if tweet_data.present?	
 				if tweet_data.first.delete
-					response.header['msg'] = "Record Deleted Successfully."
-					render json: {success:true,status_msg:"Record Deleted Successfully"}, status: 200
+					response.header['msg'] = "Tweet Deleted Successfully."
+					render json: {success:true,status_msg:"Tweet Deleted Successfully"}, status: 200
 				end
 			else
 				response.header['msg'] = "The requested Tweet is not Present"

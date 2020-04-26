@@ -17,7 +17,7 @@ def generate_password_token!
 end
 
 def password_token_valid?
- (self.reset_password_sent_at + 8.hours) > Time.now
+ (self.reset_password_sent_at + 6.hours) > Time.now
 end
 
 def reset_password!(password)
